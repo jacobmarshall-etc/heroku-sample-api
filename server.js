@@ -13,6 +13,8 @@ app.get('/latest', function (req, res) {
     agent
         .get(url)
         .end(function (err, _res) {
+            res.set('Access-Control-Allow-Origin', '*');
+
             res.send({
                 error: err,
                 result: _res.body.recenttracks.track[0]
